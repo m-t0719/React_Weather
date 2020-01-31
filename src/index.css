@@ -1,13 +1,214 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 全体設定 */
+@import './ress.css'; /* リセット */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Noto Sans JP';
+  font-weight: 300;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #F0F0F0;
+  max-width: 100vw;
+}
+
+ul {
+  list-style: none;
+}
+
+input, button, select, textarea {
+  -webkit-appearance: none;}
+
+/*-------------------- ヘッダー --------------------*/
+
+header {
+  background-color: #1565C0;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  height: 80px;
+  width: 100%;
+}
+
+.Logo {
+  color: #fff;
+  font-size: 36px;
+  margin: 10px 0 10px 15px;
+}
+
+/* ナビゲーションボタン クローズ */
+
+button {
+  background-color: #fff;
+  border-radius: 72px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+  height: 60px;
+  margin: 10px 30px auto 86.5%;
+  position: relative;
+  width: 60px;
+  z-index: 10;
+}
+
+button span {
+  background-color: #1565C0;
+  height: 3px;
+  left: 15px;
+  position: absolute;
+  top: 30px;
+  transition: all ease-in .2s;
+  width: 30px;
+}
+
+button span::before { 
+  background-color: #1565C0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  transform: rotate(0deg);
+  transition: all ease-in .2s;
+  top: 7px;
+  width: 30px;
+}
+
+button span::after {
+  background-color: #1565C0;
+  bottom: 7px;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  transform: rotate(0deg);
+  transition: all ease-in .2s;
+  width: 30px;
+}
+
+/* ナビゲーションボタン オープン */
+
+.open {
+  background-color: #e0e0e0;
+}
+
+.open span {
+  background-color: #e0e0e0;
+  height: 3px;
+  left: 15px;
+  position: absolute;
+  top: 30px;
+  transition: all ease-in .2s;
+  width: 30px;
+  z-index: 10;
+}
+
+.open span::before {
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: rotate(-45deg);
+  transition: all ease-in .2s;
+}
+
+.open span::after { /* 下 */
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: rotate(45deg);
+  transition: all ease-in .2s;
+}
+
+/* -------------------- ナビゲーション -------------------- */
+
+.close {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 115px;
+}
+
+.open_nav {
+  animation: floating_Nav .3s ease-in-out;
+  background-color: #fff;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+  height: 300px;
+  position: absolute;
+  right: 18px;
+  top: 115px;
+  width: 180px
+}
+
+.open_nav ul {
+  font-size: 18px;
+  margin: 25px auto;
+  width: 60%;
+}
+
+.open_nav ul li {
+  line-height: 2;
+}
+
+@keyframes floating_Nav {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*-------------------- メインコンポーネント大枠設定 --------------------*/
+
+.Wrapper {
+  background-color: #1565C0;
+  box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
+  height: 500px;
+  margin: 0 auto 35px;
+  width: 70%;
+}
+
+.Main_nav {
+  background-color: #fff;
+  box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
+  display: flex;
+  height: 55px;
+  margin: 35px auto 0;
+  width: 70%;
+}
+
+.Main_nav select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #1565C0;
+  color: #1565C0;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 55px;
+  text-align: center;
+  transition: all .15s ease-in;
+  width: 33.33333%;
+}
+
+.Main_nav select:hover {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #1565C0;
+  color: #fff;
+  transition: all .15s ease-in;
+}
+
+.Main_nav select:focus {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #1565C0;
+  color: #fff;
+  transition: all .15s ease-in;
 }
