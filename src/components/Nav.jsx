@@ -1,13 +1,14 @@
-import React, {Component} from 'react'
+import React from 'react'
+import Prefectures from './Prefectures'
 
 const Nav = (props) => {
   return(
     <nav className={props.nav}>
-      <ul>
-        <a href="#"><li>マイページ</li></a>
-        <a href="#"><li>About</li></a>
-        <a href="#"><li>設定</li></a>
+      <ul className="navigation_wrap">
+        <li onClick={props.onClick}>About</li>
+        <li>Setting</li>
       </ul>
+      <Prefectures onChange={props.onChange}/>
     </nav>
   )
 }

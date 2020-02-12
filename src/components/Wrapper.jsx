@@ -1,10 +1,20 @@
-import React, {Component} from 'react'
+import React from 'react'
+import Main from './Main'
+import Chart from './chart'
+import Tab from './Tab'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const Wrapper = (props) => {
   return(
-    <div className="Wrapper">
-      
-    </div>
+    <Router>
+      <div className="Wrapper">
+        <Tab />
+        <Route exact path='/' render={({}) => (
+          <Main {...props}/>
+        )} />
+        <Route exact path='/today' component={Chart} />
+      </div>
+    </Router>
   )
 }
 

@@ -1,11 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Button from './Button'
+import Logo from './Logo'
 
 const Header = (props) => {
   return(
     <header>
-      <h1 className="Logo">Logo</h1>
-      <Button btn={props.btn}  toggle_btn={props.toggle_btn}/>
+      <h1 className="logo_space"><a href="/"><Logo /></a></h1>
+      <Button btn={props.btn} onClick={props.onClick} />
     </header>
   )
 }
