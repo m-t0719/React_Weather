@@ -10,6 +10,11 @@
   font-weight: 300;
 }
 
+.test_button {
+  width: 100px;
+  height: 100px;
+}
+
 body {
   background-color: #F0F0F0;
   max-width: 100vw;
@@ -20,7 +25,24 @@ ul {
 }
 
 input, button, select, textarea {
-  -webkit-appearance: none;}
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
 /*-------------------- ヘッダー --------------------*/
 
@@ -29,95 +51,57 @@ header {
   box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
   display: flex;
   height: 80px;
+  position: relative;
   width: 100%;
 }
 
-.Logo {
+.logo_space {
   color: #fff;
   font-size: 36px;
   margin: 10px 0 10px 15px;
+  width: 140px;
+}
+
+.logo_space img {
+  max-width: 100%;
 }
 
 /* ナビゲーションボタン クローズ */
 
-button {
-  background-color: #fff;
-  border-radius: 72px;
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+.btn {
+  border-radius: 100%;
+  cursor: pointer;
   height: 60px;
-  margin: 10px 30px auto 86.5%;
-  position: relative;
+  position: absolute;
+  right: 30px;
+  top: 12px;
+  transform: rotate(0deg);
+  transition: .5s;
   width: 60px;
   z-index: 10;
 }
 
-button span {
-  background-color: #1565C0;
-  height: 3px;
-  left: 15px;
-  position: absolute;
-  top: 30px;
-  transition: all ease-in .2s;
-  width: 30px;
-}
-
-button span::before { 
-  background-color: #1565C0;
-  content: "";
-  height: 3px;
-  left: 0;
-  position: absolute;
-  transform: rotate(0deg);
-  transition: all ease-in .2s;
-  top: 7px;
-  width: 30px;
-}
-
-button span::after {
-  background-color: #1565C0;
-  bottom: 7px;
-  content: "";
-  height: 3px;
-  left: 0;
-  position: absolute;
-  transform: rotate(0deg);
-  transition: all ease-in .2s;
-  width: 30px;
+.btn img {
+  max-width: 100%;
 }
 
 /* ナビゲーションボタン オープン */
 
 .open {
-  background-color: #e0e0e0;
-}
-
-.open span {
-  background-color: #e0e0e0;
-  height: 3px;
-  left: 15px;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 60px;
   position: absolute;
-  top: 30px;
-  transition: all ease-in .2s;
-  width: 30px;
+  right: 30px;
+  top: 12px;
+  transform: rotate(180deg);
+  transition: .5s;
+  width: 60px;
   z-index: 10;
 }
 
-.open span::before {
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: rotate(-45deg);
-  transition: all ease-in .2s;
-}
-
-.open span::after { /* 下 */
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: rotate(45deg);
-  transition: all ease-in .2s;
+.open img {
+  max-width: 100%;
 }
 
 /* -------------------- ナビゲーション -------------------- */
@@ -136,18 +120,37 @@ button span::after {
   height: 300px;
   position: absolute;
   right: 18px;
-  top: 115px;
+  top: 130px;
   width: 180px
 }
 
-.open_nav ul {
-  font-size: 18px;
+.open_nav::before {
+  background-color: #fff;
+  content: "";
+  height: 50px;
+  position: absolute;
+  right: 15px;
+  top: -15px;
+  transform: rotate(-45deg);
+  width: 25px;
+}
+
+.navigation_wrap {
   margin: 25px auto;
   width: 60%;
 }
 
-.open_nav ul li {
-  line-height: 2;
+.navigation_wrap li, .navigation_wrap li a {
+  color: #1565C0;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  margin-top: 25px;
+}
+
+.navigation_wrap li:hover, .navigation_wrap li a:hover {
+  opacity: .7;
+  transition: .2s;
 }
 
 @keyframes floating_Nav {
@@ -162,53 +165,232 @@ button span::after {
   }
 }
 
+/*-------------------- ナビゲーション内セレクトエリア --------------------*/
+
+.select_Pref {
+  background-color: #000;
+}
+
 /*-------------------- メインコンポーネント大枠設定 --------------------*/
 
 .Wrapper {
   background-color: #1565C0;
   box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
-  height: 500px;
-  margin: 0 auto 35px;
+  height: 520px;
+  margin: 50px auto;
   width: 70%;
 }
 
-.Main_nav {
+/* -------------------- メインコンポーネントタブ -------------------- */
+
+.tab {
   background-color: #fff;
-  box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
   display: flex;
   height: 55px;
-  margin: 35px auto 0;
-  width: 70%;
+  width: 100%;
 }
 
-.Main_nav select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: 1px solid #1565C0;
+.tab a {
+  width: 100%;
+}
+
+.tab a label {
+  background-color: #fff;
   color: #1565C0;
+  cursor: pointer;
   display: inline-block;
   font-size: 18px;
   line-height: 55px;
   text-align: center;
   transition: all .15s ease-in;
-  width: 33.33333%;
+  width: 100%;
 }
 
-.Main_nav select:hover {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+.tab a label:hover {
   background-color: #1565C0;
   color: #fff;
   transition: all .15s ease-in;
 }
 
-.Main_nav select:focus {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+.tab input:checked + a label {
   background-color: #1565C0;
   color: #fff;
   transition: all .15s ease-in;
+}
+
+/* -------------------- メインコンポーネント_Now -------------------- */
+
+.Main {
+  display: flex;
+}
+
+.text_date {
+  margin: 7% auto auto 7%;
+  width: 30%;
+}
+
+.city {
+  color: #fff;
+  font-size: 48px;
+}
+
+.celsius {
+  color: #fff;
+  font-size: 80px;
+  margin-top: 10%;
+}
+
+.WeatherImg {
+  /* animation: spin_weather_icon 10s linear infinite; */
+  margin: 7% 7% auto auto;
+  width: 20%;
+}
+
+.WeatherImg img {
+  max-width: 100%;
+}
+
+@keyframes spin_weather_icon {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.recharts-responsive-container {
+  margin: 50px auto;
+}
+
+/*---------- モーダルウィンドウ ----------*/
+
+.modal_window {
+  animation: appearance_modal .5s ease-in-out;
+  background-color: rgba(0 ,0 ,0,.8);
+  color: #fff;
+  height: 100vh;
+  left: 0;
+  padding: 175px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+  z-index: 998;
+}
+
+.modal_window h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.modal_window p {
+  font-size: 18px;
+  line-height: 2;
+}
+
+.modal_window a:hover {
+  color: #1565C0;
+  opacity: .9;
+  transition: .2s;
+}
+
+.close_modal_button {
+  cursor: pointer;
+  height: 50px;
+  margin: 50px auto;
+  width: 50px;
+}
+
+.close_modal_button span {
+  background-color: #fff;
+  display: inline-block;
+  height: 50px;
+  transform: rotate(45deg);
+  width: 2px;
+}
+
+.close_modal_button span::after {
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  transform: rotate(-90deg);
+  width: 2px;
+  z-index: 999;
+}
+
+.modal_close {
+  display: none;
+}
+
+@keyframes appearance_modal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*---------- フォーム ----------*/
+
+.form_wrapper {
+  background-color: #1565C0;
+  height: 100%;
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 100%;
+}
+
+.form_wrapper h2 {
+  color: #fff;
+  font-size: 32px;
+}
+
+.form_wrapper form {
+  height: auto;
+  margin: 0 auto;
+  width: 25%;
+}
+
+.form_wrapper input {
+  background-color: #fff;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  color: #1565C0;
+  display: inline-block;
+  margin: 15px auto;
+  padding: 3px 5px;
+}
+
+.form_wrapper input:focus {
+  border: 1px solid #1565C0;
+  outline: none;
+}
+
+.form_wrapper label {
+  color: #fff;
+  display: inline-block;
+  font-size: 18px;
+  margin: 25px auto 0;
+}
+
+.form_wrapper input[type="submit"] {
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  color: #1565C0;
+  font-size: 14px;
+  margin-top: 25px;
+  padding: 7px 12px;
+}
+
+.form_wrapper input[type="submit"]:hover {
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.4);
+  transform: translate(1px, 1px);
+  transition: .2s;
 }
