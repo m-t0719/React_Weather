@@ -2,6 +2,8 @@ import React from 'react'
 import Clear from './clear.png'
 import Cloud from './cloud.png'
 import Rain from './rain.png'
+import Snow from './snow.png'
+import Fog from './fog.png'
 
 const ReturnWeatherIcon = (props) => {
   if(props.weather === 'Clear') {
@@ -18,10 +20,24 @@ const ReturnWeatherIcon = (props) => {
       </div>
     )
   }
-  else if(props.weather === 'Rain') {
+  else if(props.weather === 'Rain' || props.weather === 'Drizzle') {
     return(
       <div className="WeatherImg Rain">
         <img src={Rain} alt="雨"/>
+      </div>
+    )
+  }
+  else if(props.weather === 'Snow') {
+    return(
+      <div className="WeatherImg Snow">
+        <img src={Snow} alt="雪" />
+      </div>
+    )
+  }
+  else if(props.weather === 'Mist' || props.weather === 'Fog') {
+    return(
+      <div className="WeatherImg Fog">
+        <img src={Fog} alt="霧"/>
       </div>
     )
   }

@@ -117,7 +117,7 @@ header {
   animation: floating_Nav .3s ease-in-out;
   background-color: #fff;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
-  height: 300px;
+  height: auto;
   position: absolute;
   right: 18px;
   top: 130px;
@@ -137,18 +137,18 @@ header {
 
 .navigation_wrap {
   margin: 25px auto;
-  width: 60%;
+  width: 80%;
 }
 
-.navigation_wrap li, .navigation_wrap li a {
+.navigation_wrap p {
   color: #1565C0;
   cursor: pointer;
   display: block;
-  font-size: 18px;
+  font-size: 24px;
   margin-top: 25px;
 }
 
-.navigation_wrap li:hover, .navigation_wrap li a:hover {
+.navigation_wrap p:hover {
   opacity: .7;
   transition: .2s;
 }
@@ -167,8 +167,21 @@ header {
 
 /*-------------------- ナビゲーション内セレクトエリア --------------------*/
 
-.select_Pref {
-  background-color: #000;
+.prefectures select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #1565C0;
+  border-radius: 5px;
+  color: #1565C0;
+  cursor: pointer;
+  font-size: 24px;
+  height: 50px;
+  line-height: 24px;
+  margin-top: 25px;
+  padding: 10px;
+  text-align: center;
+  width: 90%;
 }
 
 /*-------------------- メインコンポーネント大枠設定 --------------------*/
@@ -176,7 +189,7 @@ header {
 .Wrapper {
   background-color: #1565C0;
   box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
-  height: 520px;
+  height: 75vh;
   margin: 50px auto;
   width: 70%;
 }
@@ -222,11 +235,16 @@ header {
 
 .Main {
   display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-content: center;
+  margin: 10% auto;
+  width: 80%;
 }
 
 .text_date {
-  margin: 7% auto auto 7%;
-  width: 30%;
+  height: auto;
+  width: 40%;
 }
 
 .city {
@@ -241,27 +259,100 @@ header {
 }
 
 .WeatherImg {
-  /* animation: spin_weather_icon 10s linear infinite; */
-  margin: 7% 7% auto auto;
-  width: 20%;
+  height: auto;
+  width: 40%;
 }
 
 .WeatherImg img {
   max-width: 100%;
 }
 
-@keyframes spin_weather_icon {
+/* 各天気状態毎におけるアイコンのアニメーション定義 */
+
+/* 晴れ */
+
+.Clear img {
+  animation: ClearAnimetion 20s linear infinite;
+}
+
+@keyframes ClearAnimetion {
   0% {
     transform: rotate(0deg);
+    transform-origin: center;
   }
 
   100% {
     transform: rotate(360deg);
+    transform-origin: center;
   }
 }
 
-.recharts-responsive-container {
-  margin: 50px auto;
+/* 曇り */
+
+.Cloud {
+  animation: CloudAnimation 3s ease-in-out infinite;
+}
+
+@keyframes CloudAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.Rain {
+  position: relative;
+}
+
+.Rain::before {
+  animation: RainAnimation .5s linear infinite;
+  background-color: #fff;
+  border-radius: 5px;
+  content: "";
+  height: 20px;
+  position: absolute;
+  width: 3px;
+}
+
+.Rain::after {
+  animation: RainAnimation .5s linear infinite;
+  background-color: #fff;
+  border-radius: 5px;
+  content: "";
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+
+@keyframes RainAnimation {
+  0% {
+    transform: translate(0) rotate(-15deg);
+  }
+
+  100% {
+    transform: translate(12px, 50px) rotate(-15deg);
+  }
+}
+
+.chartWrap {
+  color: #fff;
+  height: 100%;
+  margin: 15px 0 0 0;
+  width: 100%;
+}
+
+.chartWrap h2 {
+  font-size: 24px;
+  margin-left: 3%;
 }
 
 /*---------- モーダルウィンドウ ----------*/
@@ -336,61 +427,4 @@ header {
   100% {
     opacity: 1;
   }
-}
-
-/*---------- フォーム ----------*/
-
-.form_wrapper {
-  background-color: #1565C0;
-  height: 100%;
-  margin: 0 auto;
-  padding: 30px 0;
-  width: 100%;
-}
-
-.form_wrapper h2 {
-  color: #fff;
-  font-size: 32px;
-}
-
-.form_wrapper form {
-  height: auto;
-  margin: 0 auto;
-  width: 25%;
-}
-
-.form_wrapper input {
-  background-color: #fff;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
-  color: #1565C0;
-  display: inline-block;
-  margin: 15px auto;
-  padding: 3px 5px;
-}
-
-.form_wrapper input:focus {
-  border: 1px solid #1565C0;
-  outline: none;
-}
-
-.form_wrapper label {
-  color: #fff;
-  display: inline-block;
-  font-size: 18px;
-  margin: 25px auto 0;
-}
-
-.form_wrapper input[type="submit"] {
-  border-radius: 5px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
-  color: #1565C0;
-  font-size: 14px;
-  margin-top: 25px;
-  padding: 7px 12px;
-}
-
-.form_wrapper input[type="submit"]:hover {
-  box-shadow: 0px 3px 3px rgba(0,0,0,0.4);
-  transform: translate(1px, 1px);
-  transition: .2s;
 }

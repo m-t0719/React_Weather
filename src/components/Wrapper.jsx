@@ -12,7 +12,9 @@ const Wrapper = (props) => {
         <Route exact path='/' render={({}) => (
           <Main {...props}/>
         )} />
-        <Route exact path='/today' component={Chart} />
+        <Route exact path='/today' render={({}) => (
+          <Chart {...props} />
+        )} />
       </div>
     </Router>
   )

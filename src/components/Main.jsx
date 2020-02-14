@@ -1,11 +1,12 @@
 import React from 'react'
 import Icon from './Icons'
+import CityName from './CityName'
 
 const Main = (props) => {
   return(
     <div className="Main">
       <div className="text_date">
-        <p className="city">{props.city}</p>
+        <CityName city={props.city} />
         <p className="celsius">{props.temp}</p>
       </div>
       <Icon weather={props.weather}/>

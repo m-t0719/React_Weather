@@ -2,13 +2,15 @@ import React from 'react'
 import Prefectures from './Prefectures'
 
 const Nav = (props) => {
+  const toggleModal = () => {
+    props.onClick()
+  }
   return(
     <nav className={props.nav}>
-      <ul className="navigation_wrap">
-        <li onClick={props.onClick}>About</li>
-        <li>Setting</li>
-      </ul>
-      <Prefectures onChange={props.onChange}/>
+      <div className="navigation_wrap">
+        <p onClick={toggleModal}>About</p>
+        <Prefectures onChange={props.onChange}/>
+      </div>
     </nav>
   )
 }
