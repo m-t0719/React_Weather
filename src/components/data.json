@@ -1,0 +1,329 @@
+{
+  "cod": "200",
+  "message": 0,
+  "cnt": 9,
+  "list": [
+    {
+      "dt": 1581649200,
+      "main": {
+        "temp": 15.62,
+        "feels_like": 14.09,
+        "temp_min": 13.29,
+        "temp_max": 15.62,
+        "pressure": 1019,
+        "sea_level": 1019,
+        "grnd_level": 1013,
+        "humidity": 58,
+        "temp_kf": 2.33
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "小雨",
+          "icon": "10d"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 1.32,
+        "deg": 123
+      },
+      "rain": {
+        "3h": 0.13
+      },
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2020-02-14 03:00:00"
+    },
+    {
+      "dt": 1581660000,
+      "main": {
+        "temp": 14.14,
+        "feels_like": 12.38,
+        "temp_min": 12.39,
+        "temp_max": 14.14,
+        "pressure": 1017,
+        "sea_level": 1017,
+        "grnd_level": 1010,
+        "humidity": 72,
+        "temp_kf": 1.75
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "小雨",
+          "icon": "10d"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 2.27,
+        "deg": 117
+      },
+      "rain": {
+        "3h": 0.25
+      },
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2020-02-14 06:00:00"
+    },
+    {
+      "dt": 1581670800,
+      "main": {
+        "temp": 13.44,
+        "feels_like": 11.34,
+        "temp_min": 12.28,
+        "temp_max": 13.44,
+        "pressure": 1018,
+        "sea_level": 1018,
+        "grnd_level": 1011,
+        "humidity": 79,
+        "temp_kf": 1.16
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "小雨",
+          "icon": "10n"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 3.01,
+        "deg": 11
+      },
+      "rain": {
+        "3h": 0.31
+      },
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2020-02-14 09:00:00"
+    },
+    {
+      "dt": 1581681600,
+      "main": {
+        "temp": 12.58,
+        "feels_like": 9.98,
+        "temp_min": 12,
+        "temp_max": 12.58,
+        "pressure": 1019,
+        "sea_level": 1019,
+        "grnd_level": 1012,
+        "humidity": 81,
+        "temp_kf": 0.58
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "小雨",
+          "icon": "10n"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 3.56,
+        "deg": 350
+      },
+      "rain": {
+        "3h": 0.13
+      },
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2020-02-14 12:00:00"
+    },
+    {
+      "dt": 1581692400,
+      "main": {
+        "temp": 11.02,
+        "feels_like": 8.63,
+        "temp_min": 11.02,
+        "temp_max": 11.02,
+        "pressure": 1019,
+        "sea_level": 1019,
+        "grnd_level": 1012,
+        "humidity": 77,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "雲",
+          "icon": "03n"
+        }
+      ],
+      "clouds": {
+        "all": 46
+      },
+      "wind": {
+        "speed": 2.46,
+        "deg": 357
+      },
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2020-02-14 15:00:00"
+    },
+    {
+      "dt": 1581703200,
+      "main": {
+        "temp": 10.13,
+        "feels_like": 6.92,
+        "temp_min": 10.13,
+        "temp_max": 10.13,
+        "pressure": 1019,
+        "sea_level": 1019,
+        "grnd_level": 1012,
+        "humidity": 73,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "薄い雲",
+          "icon": "02n"
+        }
+      ],
+      "clouds": {
+        "all": 23
+      },
+      "wind": {
+        "speed": 3.13,
+        "deg": 5
+      },
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2020-02-14 18:00:00"
+    },
+    {
+      "dt": 1581714000,
+      "main": {
+        "temp": 9.55,
+        "feels_like": 6.37,
+        "temp_min": 9.55,
+        "temp_max": 9.55,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "grnd_level": 1014,
+        "humidity": 61,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "晴天",
+          "icon": "01n"
+        }
+      ],
+      "clouds": {
+        "all": 5
+      },
+      "wind": {
+        "speed": 2.25,
+        "deg": 353
+      },
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2020-02-14 21:00:00"
+    },
+    {
+      "dt": 1581724800,
+      "main": {
+        "temp": 11.72,
+        "feels_like": 9.64,
+        "temp_min": 11.72,
+        "temp_max": 11.72,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "grnd_level": 1016,
+        "humidity": 53,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "雲",
+          "icon": "03d"
+        }
+      ],
+      "clouds": {
+        "all": 44
+      },
+      "wind": {
+        "speed": 0.69,
+        "deg": 203
+      },
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2020-02-15 00:00:00"
+    },
+    {
+      "dt": 1581735600,
+      "main": {
+        "temp": 14.86,
+        "feels_like": 11.47,
+        "temp_min": 14.86,
+        "temp_max": 14.86,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "grnd_level": 1016,
+        "humidity": 44,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "厚い雲",
+          "icon": "04d"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 2.62,
+        "deg": 153
+      },
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2020-02-15 03:00:00"
+    }
+  ],
+  "city": {
+    "id": 1850144,
+    "name": "東京都",
+    "coord": {
+      "lat": 35.6895,
+      "lon": 139.6917
+    },
+    "country": "JP",
+    "population": 12445327,
+    "timezone": 32400,
+    "sunrise": 1581629429,
+    "sunset": 1581668437
+  }
+}

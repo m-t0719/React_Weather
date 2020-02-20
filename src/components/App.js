@@ -29,14 +29,14 @@ class App extends React.Component {
   componentDidMount() {
     this.getCurrentPositionWeatherData()
     this.getCurrentPositionForecastWeatherData()
-    console.log('ディでマウント')
+    console.log('マウント')
   }
 
   // stateが変更されたタイミングでタイミングで現在、1日の各情報をGETリクエスト
   componentDidUpdate() {
     if (this.state.prefectures_value !== null && this.state.prefectures_value !== this.state.city) {
       this.getTodayWeatherData()
-      // this.getForecastWeatherData()
+      this.getForecastWeatherData()
       console.log('アップデート動いてんぞ')
     }
   }
@@ -46,7 +46,7 @@ class App extends React.Component {
     const url = 'http://api.openweathermap.org/data/2.5/weather'
     const apiId = '8198ed09bde99f82814d310d1f1b1b3d'
     navigator.geolocation.getCurrentPosition((pos) => {
-      fetch(`${url}?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&appid=${apiId}`, {
+      fetch(`${url}?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&lang=ja&appid=${apiId}`, {
         method: 'GET'
       })
         // jsonを取得後適当なステートに格納していく
@@ -84,7 +84,7 @@ class App extends React.Component {
   // 現在位置で1日の天気予報を取得
   getCurrentPositionForecastWeatherData() {
     // 配列になっているstateにsetStateするため配列を複製
-    const forecastCopy = this.state.forecast.slice()
+    const forecastData = new Array()
     const url = 'http://api.openweathermap.org/data/2.5/forecast'
     const apiId = '8198ed09bde99f82814d310d1f1b1b3d'
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -94,59 +94,61 @@ class App extends React.Component {
         .then(res => res.json())
         .then(json => {
           // jsonから時刻と温度を取り出し
-          for(let i = 0; i <= json.list.length - 1; i++) {
+          for (let i = 0; i <= json.list.length - 1; i++) {
             // 時刻をJSTに変換　かつ24を超えていた場合0に戻す
             let Time = ''
-            const getJsonTime = parseInt(json.list[i].dt_txt.replace(/(\w+)\-(\w+)\-(\w+)/, ''))
-            if(getJsonTime + 9 > 24) {
-              Time = getJsonTime + 9 -24
+            const replaceJsonTime = parseInt(json.list[i].dt_txt.replace(/(\w+)\-(\w+)\-(\w+)/, ''))
+            if (replaceJsonTime + 9 > 24) {
+              Time = replaceJsonTime + 9 - 24
             } else {
-              Time = getJsonTime + 9
+              Time = replaceJsonTime + 9
             }
             // stateに格納するための変数に取り出したデータを入れる
-            forecastCopy.push(
+            forecastData.push(
               { time: `${Time}:00`, temp: json.list[i].main.temp }
             )
           }
+          // stateにオブジェクトの入った配列をセット
+          this.setState({
+            forecast: forecastData
+          })
         }
         )
         .catch(error => console.log(error))
-    })
-    // stateにオブジェクトの入った配列をセット
-    this.setState({
-      forecast: forecastCopy
     })
   }
 
   // セレクトボックスで選ばれた地域で1日の天気予報取得
   getForecastWeatherData() {
-    const forecastCopy = this.state.forecast.slice()
-    fetch(`http://api.openweathermap.org/data/2.5/?q=${this.state.prefectures_value}&cnt=9&units=metric&appid=8198ed09bde99f82814d310d1f1b1b3d`, {
+    const forecastCopy = new Array()
+    const url = 'http://api.openweathermap.org/data/2.5/forecast'
+    const apiId = '8198ed09bde99f82814d310d1f1b1b3d'
+    fetch(`${url}?q=${this.state.prefectures_value}&cnt=9&units=metric&appid=${apiId}`, {
       method: 'GET'
     })
       .then(res => res.json())
       .then(json => {
         // jsonから時刻と温度を取り出し
-        for(let i = 0; i <= json.list.length - 1; i++) {
+        for (let i = 0; i <= json.list.length - 1; i++) {
           // 時刻をJSTに変換　かつ24を超えていた場合0に戻す
           let Time = ''
-          const getJsonTime = parseInt(json.list[i].dt_txt.replace(/(\w+)\-(\w+)\-(\w+)/, ''))
-          if(getJsonTime + 9 > 24) {
-            Time = getJsonTime + 9 -24
+          const replaceJsonTime = parseInt(json.list[i].dt_txt.replace(/(\w+)\-(\w+)\-(\w+)/, ''))
+          if (replaceJsonTime + 9 > 24) {
+            Time = replaceJsonTime + 9 - 24
           } else {
-            Time = getJsonTime + 9
+            Time = replaceJsonTime + 9
           }
           // stateに格納するための変数に取り出したデータを入れる
           forecastCopy.push(
             { time: `${Time}:00`, temp: json.list[i].main.temp }
           )
         }
+        this.setState({
+          forecast: forecastCopy
+        })
       }
       )
       .catch(error => console.log(error))
-    this.setState({
-      forecast: forecastCopy
-    })
   }
 
   // ナビゲーション展開切り替え
@@ -175,6 +177,8 @@ class App extends React.Component {
       })
     }
   }
+
+  // セレクトボックスで選択されたoptionのvalueをステートにセット
   select_prefectures(event) {
     this.setState({ prefectures_value: event.target.value })
   }

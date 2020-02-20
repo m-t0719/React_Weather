@@ -23,6 +23,7 @@ const ReturnWeatherIcon = (props) => {
   else if(props.weather === 'Rain' || props.weather === 'Drizzle') {
     return(
       <div className="WeatherImg Rain">
+        <span>|</span>
         <img src={Rain} alt="雨"/>
       </div>
     )
@@ -30,11 +31,12 @@ const ReturnWeatherIcon = (props) => {
   else if(props.weather === 'Snow') {
     return(
       <div className="WeatherImg Snow">
+        <span className="snowBall">●</span>
         <img src={Snow} alt="雪" />
       </div>
     )
   }
-  else if(props.weather === 'Mist' || props.weather === 'Fog') {
+  else if(props.weather === 'Mist' || props.weather === 'Fog' || props.weather === 'Haze') {
     return(
       <div className="WeatherImg Fog">
         <img src={Fog} alt="霧"/>
