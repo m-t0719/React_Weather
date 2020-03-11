@@ -3,6 +3,7 @@ import Header from './Header'
 import Nav from './Nav'
 import Wrapper from './Wrapper'
 import Modal from './modal'
+import Button from './Button'
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class App extends React.Component {
     if (this.state.prefectures_value !== null && this.state.prefectures_value !== this.state.city) {
       this.getTodayWeatherData()
       this.getForecastWeatherData()
-      console.log('アップデート動いてんぞ')
+      console.log('アップデート')
     }
   }
 
@@ -186,15 +187,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header
-          btn={this.state.btn}
-          onClick={this.toggle_nav}
-        />
-        <Nav
-          nav={this.state.nav}
-          onClick={this.toggle_modal}
-          onChange={this.select_prefectures}
-        />
+        <Header />
         <Modal
           modal_state={this.state.modal_state}
           onClick={this.toggle_modal}
@@ -206,6 +199,15 @@ class App extends React.Component {
           city={this.state.city}
           weather={this.state.weather}
           forecast={this.state.forecast}
+        />
+        <Nav
+          nav={this.state.nav}
+          onClick={this.toggle_modal}
+          onChange={this.select_prefectures}
+        />
+        <Button 
+          btn={this.state.btn}
+          onClick={this.toggle_nav}
         />
       </div>
     )
