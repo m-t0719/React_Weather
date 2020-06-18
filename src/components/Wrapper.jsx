@@ -9,10 +9,10 @@ const Wrapper = (props) => {
     <Router>
       <div className="Wrapper">
         <Tab />
-        <Route exact path='/' render={({}) => (
+        <Route exact path='/' render={() => (
           <Main {...props}/>
         )} />
-        <Route exact path='/today' render={({}) => (
+        <Route exact path='/today' render={() => (
           <Chart {...props} />
         )} />
       </div>

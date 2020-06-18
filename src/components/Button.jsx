@@ -1,5 +1,4 @@
 import React from 'react'
-import Gear from './gear.png'
 
 const Button = (props) => {
   const openNavigation = () => {
@@ -7,7 +6,7 @@ const Button = (props) => {
   }
   return(
     <div className={props.btn} onClick={openNavigation}>
-      <img src={Gear} alt="設定" />
+      <i class="fas fa-cog floatingButton"></i>
     </div>
   )
 }
