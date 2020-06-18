@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Prefectures = (props) => {
+  // プルダウンメニューの内部に表示されるデータを定義
   const states = [
     { value: null, name: '地域選択'},
     { value: 'Hokkaido', name: '北海道' },
@@ -50,6 +51,7 @@ const Prefectures = (props) => {
     { value: 'Kagoshima', name: '鹿児島'},
     { value: 'Okinawa', name: '沖縄'}
   ]
+  // 定義した配列からJSXを生成
   const options = states.map(
     (d) => (
       <option key={d.value} value={d.value}>

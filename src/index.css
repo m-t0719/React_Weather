@@ -71,18 +71,19 @@ header {
 .floatingButton {
   bottom: 18.5%;
   color: #fff;
-  font-size: 2.6vw;
-  position: absolute;
-  right: 19%;
+  font-size: 2vw;
 }
 
 .btn {
+  align-items: center;
   background-color: #1565C0;
   border-radius: 100%;
   bottom: 8%;
   box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
   cursor: pointer;
+  display: flex;
   height: 60px;
+  justify-content: center;
   padding: 10px;
   position: absolute;
   right: 5%;
@@ -94,12 +95,15 @@ header {
 /* ナビゲーションボタン オープン */
 
 .open {
+  align-items: center;
   background-color: #1565C0;
   border-radius: 100%;
   box-shadow: 0px 6px 10px rgba(0,0,0,0.4);
   bottom: 8%;
   cursor: pointer;
+  display: flex;
   height: 60px;
+  justify-content: center;
   padding: 10px;
   position: absolute;
   right: 5%;
@@ -128,16 +132,6 @@ header {
   width: 180px
 }
 
-/* .open_nav::before {
-  background-color: #fff;
-  content: "";
-  height: 50px;
-  position: absolute;
-  right: 15px;
-  transform: rotate(-45deg);
-  width: 25px;
-} */
-
 .navigation_wrap {
   margin: 25px auto;
   width: 80%;
@@ -159,7 +153,7 @@ header {
 @keyframes floating_Nav {
   0% {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(15px);
   }
 
   100% {
@@ -200,17 +194,12 @@ header {
 /* -------------------- メインコンポーネントタブ -------------------- */
 
 .tab {
-  background-color: #fff;
   display: flex;
   height: 55px;
   width: 100%;
 }
 
 .tab a {
-  width: 100%;
-}
-
-.tab a label{
   background-color: #fff;
   color: #1565C0;
   cursor: pointer;
@@ -223,13 +212,7 @@ header {
   width: 100%;
 }
 
-.tab a label:hover {
-  background-color: #1565C0;
-  color: #fff;
-  transition: all .15s ease-in;
-}
-
-.tab input:checked + a label {
+.tab a:hover {
   background-color: #1565C0;
   color: #fff;
   transition: all .15s ease-in;

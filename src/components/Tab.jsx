@@ -1,15 +1,19 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import React from "react"
+import { NavLink } from "react-router-dom"
 
-// console.log(viewingPage)
-
-const Tab = (props) => (
-  <div className="tab">
-    <input type="radio" name="tab" id="/" />
-    <Link to='/' ><label htmlFor="/">Now</label></Link>
-    <input type="radio" name="tab" id="/today" />
-    <Link to='/today' ><label htmlFor="/today">Today</label></Link>
-  </div>
-)
+const Tab = () => {
+  return (
+    <div className="tab">
+      <NavLink exact activeStyle={{ backgroundColor: "#1565C0", color: "#fff" }} to="/">
+        <input type="radio" name="tab" id="/" />
+        <label htmlFor="/">Now</label>
+      </NavLink>
+      <input type="radio" name="tab" id="/today" />
+      <NavLink exact to="/today" activeStyle={{ backgroundColor: "#1565C0", color: "#fff" }}>
+        <label htmlFor="/today">Today</label>
+      </NavLink>
+    </div>
+  )
+}
 
 export default Tab
